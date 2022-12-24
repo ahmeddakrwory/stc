@@ -1,0 +1,45 @@
+
+type Query {
+    getAllmed: [Med],
+    findPbydate ( prs:PrescriptionInput) :[Prescription],
+    findPById (id:Int):Prescription
+}
+type Med{
+    id:ID !,
+    name:String,
+    idType:TypeMed
+}
+type TypeMed{
+    id:ID!,
+    name:String,
+
+}
+type Prescription{
+    id:ID!,
+    idPation:Pation,
+    mydate:String,
+    idPathologicDiagnosis:PathologicDiagnosis
+}
+type Pation{
+    id:ID!
+    phone:String,
+    active:Boolean,
+    name:String,
+    address:String
+}
+type PathologicDiagnosis{
+    id:ID!,
+    name:String
+}
+
+
+input PrescriptionInput{
+    PageSize:Int,
+    pageNumber:Int,
+    date:String
+    diagonsisId:Int,
+    pid:Int
+
+}
+
+
